@@ -1,0 +1,13 @@
+# Ignore Kubernetes secrets
+*.secret.yaml
+*secret*.yaml
+
+# Ignore kubeconfig
+kubeconfig
+.kube/
+
+# Ignore local files
+.DS_Store
+Thumbs.db
+
+
