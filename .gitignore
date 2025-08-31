@@ -1,6 +1,11 @@
 # Ignore Kubernetes secrets
 *.secret.yaml
 *secret*.yaml
+*.key
+*.pem
+*.crt
+*.token
+secrets/
 
 # Ignore kubeconfig
 kubeconfig
@@ -10,4 +15,13 @@ kubeconfig
 .DS_Store
 Thumbs.db
 
+# Environment files
+.env
 
+# IDE/editor configs
+.vscode/
+.idea/
+
+# Logs and cache
+*.log
+*.cache
