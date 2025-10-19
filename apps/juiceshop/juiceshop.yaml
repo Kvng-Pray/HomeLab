@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name:  juiceshop
-        image:  bkimminich/juice-shop
+        image:  bkimminich/juice-shop:arm64
         resources:
           requests:
             cpu: 100m
@@ -25,14 +25,6 @@ spec:
           limits:
             cpu: 100m
             memory: 100Mi
-        livenessProbe:
-          tcpSocket:
-            port: 3000
-          initialDelaySeconds: 5
-          timeoutSeconds: 5
-          successThreshold: 1
-          failureThreshold: 3
-          periodSeconds: 10
         ports:
         - containerPort:  3000
           name:  http
