@@ -1,0 +1,622 @@
+apiVersion: v1
+items:
+- apiVersion: monitoring.coreos.com/v1
+  kind: Alertmanager
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/Alertmanager:monitoring/kube-prometheus-stack-alertmanager
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"Alertmanager","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/Alertmanager:monitoring/kube-prometheus-stack-alertmanager"},"labels":{"app":"kube-prometheus-stack-alertmanager","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/part-of":"kube-prometheus-stack","app.kubernetes.io/version":"79.0.0","chart":"kube-prometheus-stack-79.0.0","heritage":"Helm","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-alertmanager","namespace":"monitoring"},"spec":{"affinity":{"podAntiAffinity":{"preferredDuringSchedulingIgnoredDuringExecution":[{"podAffinityTerm":{"labelSelector":{"matchExpressions":[{"key":"app.kubernetes.io/name","operator":"In","values":["alertmanager"]},{"key":"alertmanager","operator":"In","values":["kube-prometheus-stack-alertmanager"]}]},"topologyKey":"kubernetes.io/hostname"},"weight":100}]}},"alertmanagerConfigNamespaceSelector":{},"alertmanagerConfigSelector":{},"automountServiceAccountToken":true,"externalUrl":"http://kube-prometheus-stack-alertmanager.monitoring:9093","image":"quay.io/prometheus/alertmanager:v0.28.1","imagePullPolicy":"IfNotPresent","listenLocal":false,"logFormat":"logfmt","logLevel":"info","paused":false,"portName":"http-web","replicas":1,"retention":"120h","routePrefix":"/","securityContext":{"fsGroup":2000,"runAsGroup":2000,"runAsNonRoot":true,"runAsUser":1000,"seccompProfile":{"type":"RuntimeDefault"}},"serviceAccountName":"kube-prometheus-stack-alertmanager","version":"v0.28.1"}}
+    creationTimestamp: "2025-10-28T12:12:09Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-alertmanager
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 79.0.0
+      chart: kube-prometheus-stack-79.0.0
+      heritage: Helm
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-alertmanager
+    namespace: monitoring
+    resourceVersion: "43782572"
+    uid: 7569797f-a95a-424d-8828-b7b59883960d
+  spec:
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                - alertmanager
+              - key: alertmanager
+                operator: In
+                values:
+                - kube-prometheus-stack-alertmanager
+            topologyKey: kubernetes.io/hostname
+          weight: 100
+    alertmanagerConfigNamespaceSelector: {}
+    alertmanagerConfigSelector: {}
+    automountServiceAccountToken: true
+    externalUrl: http://kube-prometheus-stack-alertmanager.monitoring:9093
+    image: quay.io/prometheus/alertmanager:v0.28.1
+    imagePullPolicy: IfNotPresent
+    listenLocal: false
+    logFormat: logfmt
+    logLevel: info
+    paused: false
+    portName: http-web
+    replicas: 1
+    retention: 120h
+    routePrefix: /
+    securityContext:
+      fsGroup: 2000
+      runAsGroup: 2000
+      runAsNonRoot: true
+      runAsUser: 1000
+      seccompProfile:
+        type: RuntimeDefault
+    serviceAccountName: kube-prometheus-stack-alertmanager
+    version: v0.28.1
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-alertmanager
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-alertmanager"},"labels":{"app":"kube-prometheus-stack-alertmanager","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/part-of":"kube-prometheus-stack","app.kubernetes.io/version":"79.0.0","chart":"kube-prometheus-stack-79.0.0","heritage":"Helm","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-alertmanager","namespace":"monitoring"},"spec":{"endpoints":[{"enableHttp2":true,"path":"/metrics","port":"http-web"},{"path":"/metrics","port":"reloader-web"}],"namespaceSelector":{"matchNames":["monitoring"]},"selector":{"matchLabels":{"app":"kube-prometheus-stack-alertmanager","release":"kube-prometheus-stack","self-monitor":"true"}}}}
+    creationTimestamp: "2025-10-28T12:12:11Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-alertmanager
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 79.0.0
+      chart: kube-prometheus-stack-79.0.0
+      heritage: Helm
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-alertmanager
+    namespace: monitoring
+    resourceVersion: "43782599"
+    uid: 3391a0ae-286a-49fa-bd0b-4fec700d71c2
+  spec:
+    endpoints:
+    - enableHttp2: true
+      path: /metrics
+      port: http-web
+    - path: /metrics
+      port: reloader-web
+    namespaceSelector:
+      matchNames:
+      - monitoring
+    selector:
+      matchLabels:
+        app: kube-prometheus-stack-alertmanager
+        release: kube-prometheus-stack
+        self-monitor: "true"
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-apiserver
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-apiserver"},"labels":{"app":"kube-prometheus-stack-apiserver","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/part-of":"kube-prometheus-stack","app.kubernetes.io/version":"79.0.0","chart":"kube-prometheus-stack-79.0.0","heritage":"Helm","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-apiserver","namespace":"monitoring"},"spec":{"endpoints":[{"bearerTokenFile":"/var/run/secrets/kubernetes.io/serviceaccount/token","metricRelabelings":[{"action":"drop","regex":"(etcd_request|apiserver_request_slo|apiserver_request_sli|apiserver_request)_duration_seconds_bucket;(0\\.15|0\\.2|0\\.3|0\\.35|0\\.4|0\\.45|0\\.6|0\\.7|0\\.8|0\\.9|1\\.25|1\\.5|1\\.75|2|3|3\\.5|4|4\\.5|6|7|8|9|15|20|40|45|50)(\\.0)?","sourceLabels":["__name__","le"]}],"port":"https","scheme":"https","tlsConfig":{"caFile":"/var/run/secrets/kubernetes.io/serviceaccount/ca.crt","insecureSkipVerify":false,"serverName":"kubernetes"}}],"jobLabel":"component","namespaceSelector":{"matchNames":["default"]},"selector":{"matchLabels":{"component":"apiserver","provider":"kubernetes"}}}}
+    creationTimestamp: "2025-10-28T12:12:11Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-apiserver
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 79.0.0
+      chart: kube-prometheus-stack-79.0.0
+      heritage: Helm
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-apiserver
+    namespace: monitoring
+    resourceVersion: "43782603"
+    uid: b6c3d98c-836f-4ddd-bd83-26442c0ce5dd
+  spec:
+    endpoints:
+    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      metricRelabelings:
+      - action: drop
+        regex: (etcd_request|apiserver_request_slo|apiserver_request_sli|apiserver_request)_duration_seconds_bucket;(0\.15|0\.2|0\.3|0\.35|0\.4|0\.45|0\.6|0\.7|0\.8|0\.9|1\.25|1\.5|1\.75|2|3|3\.5|4|4\.5|6|7|8|9|15|20|40|45|50)(\.0)?
+        sourceLabels:
+        - __name__
+        - le
+      port: https
+      scheme: https
+      tlsConfig:
+        caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        insecureSkipVerify: false
+        serverName: kubernetes
+    jobLabel: component
+    namespaceSelector:
+      matchNames:
+      - default
+    selector:
+      matchLabels:
+        component: apiserver
+        provider: kubernetes
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-coredns
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-coredns"},"labels":{"app":"kube-prometheus-stack-coredns","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/part-of":"kube-prometheus-stack","app.kubernetes.io/version":"79.0.0","chart":"kube-prometheus-stack-79.0.0","heritage":"Helm","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-coredns","namespace":"monitoring"},"spec":{"endpoints":[{"bearerTokenFile":"/var/run/secrets/kubernetes.io/serviceaccount/token","port":"http-metrics"}],"jobLabel":"jobLabel","namespaceSelector":{"matchNames":["kube-system"]},"selector":{"matchLabels":{"app":"kube-prometheus-stack-coredns","release":"kube-prometheus-stack"}}}}
+    creationTimestamp: "2025-10-28T12:12:11Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-coredns
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 79.0.0
+      chart: kube-prometheus-stack-79.0.0
+      heritage: Helm
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-coredns
+    namespace: monitoring
+    resourceVersion: "43782610"
+    uid: a2ae9111-a943-4013-bfa6-e9c2177adeca
+  spec:
+    endpoints:
+    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      port: http-metrics
+    jobLabel: jobLabel
+    namespaceSelector:
+      matchNames:
+      - kube-system
+    selector:
+      matchLabels:
+        app: kube-prometheus-stack-coredns
+        release: kube-prometheus-stack
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-grafana
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-grafana"},"labels":{"app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/name":"grafana","app.kubernetes.io/version":"12.2.0","helm.sh/chart":"grafana-10.1.2"},"name":"kube-prometheus-stack-grafana","namespace":"monitoring"},"spec":{"endpoints":[{"honorLabels":true,"path":"/metrics","port":"http-web","scheme":"http","scrapeTimeout":"30s"}],"jobLabel":"kube-prometheus-stack","namespaceSelector":{"matchNames":["monitoring"]},"selector":{"matchLabels":{"app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/name":"grafana"}}}}
+    creationTimestamp: "2025-10-28T12:12:12Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/name: grafana
+      app.kubernetes.io/version: 12.2.0
+      helm.sh/chart: grafana-10.1.2
+    name: kube-prometheus-stack-grafana
+    namespace: monitoring
+    resourceVersion: "43782619"
+    uid: d1e00b1e-42ce-423a-8f0a-eff393873c0c
+  spec:
+    endpoints:
+    - honorLabels: true
+      path: /metrics
+      port: http-web
+      scheme: http
+      scrapeTimeout: 30s
+    jobLabel: kube-prometheus-stack
+    namespaceSelector:
+      matchNames:
+      - monitoring
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: kube-prometheus-stack
+        app.kubernetes.io/name: grafana
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kube-controller-manager
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kube-controller-manager"},"labels":{"app":"kube-prometheus-stack-kube-controller-manager","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/part-of":"kube-prometheus-stack","app.kubernetes.io/version":"79.0.0","chart":"kube-prometheus-stack-79.0.0","heritage":"Helm","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-kube-controller-manager","namespace":"monitoring"},"spec":{"endpoints":[{"bearerTokenFile":"/var/run/secrets/kubernetes.io/serviceaccount/token","port":"http-metrics","scheme":"https","tlsConfig":{"caFile":"/var/run/secrets/kubernetes.io/serviceaccount/ca.crt","insecureSkipVerify":true}}],"jobLabel":"jobLabel","namespaceSelector":{"matchNames":["kube-system"]},"selector":{"matchLabels":{"app":"kube-prometheus-stack-kube-controller-manager","release":"kube-prometheus-stack"}}}}
+    creationTimestamp: "2025-10-28T12:12:13Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-kube-controller-manager
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 79.0.0
+      chart: kube-prometheus-stack-79.0.0
+      heritage: Helm
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-kube-controller-manager
+    namespace: monitoring
+    resourceVersion: "43782645"
+    uid: b2684b57-4149-457e-a452-28ffcf69cdef
+  spec:
+    endpoints:
+    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      port: http-metrics
+      scheme: https
+      tlsConfig:
+        caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        insecureSkipVerify: true
+    jobLabel: jobLabel
+    namespaceSelector:
+      matchNames:
+      - kube-system
+    selector:
+      matchLabels:
+        app: kube-prometheus-stack-kube-controller-manager
+        release: kube-prometheus-stack
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kube-etcd
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kube-etcd"},"labels":{"app":"kube-prometheus-stack-kube-etcd","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/part-of":"kube-prometheus-stack","app.kubernetes.io/version":"79.0.0","chart":"kube-prometheus-stack-79.0.0","heritage":"Helm","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-kube-etcd","namespace":"monitoring"},"spec":{"endpoints":[{"bearerTokenFile":"/var/run/secrets/kubernetes.io/serviceaccount/token","port":"http-metrics"}],"jobLabel":"jobLabel","namespaceSelector":{"matchNames":["kube-system"]},"selector":{"matchLabels":{"app":"kube-prometheus-stack-kube-etcd","release":"kube-prometheus-stack"}}}}
+    creationTimestamp: "2025-10-28T12:12:13Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-kube-etcd
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 79.0.0
+      chart: kube-prometheus-stack-79.0.0
+      heritage: Helm
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-kube-etcd
+    namespace: monitoring
+    resourceVersion: "43782646"
+    uid: 273554dd-6006-4eae-b8c0-0938e856b6ba
+  spec:
+    endpoints:
+    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      port: http-metrics
+    jobLabel: jobLabel
+    namespaceSelector:
+      matchNames:
+      - kube-system
+    selector:
+      matchLabels:
+        app: kube-prometheus-stack-kube-etcd
+        release: kube-prometheus-stack
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kube-proxy
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kube-proxy"},"labels":{"app":"kube-prometheus-stack-kube-proxy","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/part-of":"kube-prometheus-stack","app.kubernetes.io/version":"79.0.0","chart":"kube-prometheus-stack-79.0.0","heritage":"Helm","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-kube-proxy","namespace":"monitoring"},"spec":{"endpoints":[{"bearerTokenFile":"/var/run/secrets/kubernetes.io/serviceaccount/token","port":"http-metrics"}],"jobLabel":"jobLabel","namespaceSelector":{"matchNames":["kube-system"]},"selector":{"matchLabels":{"app":"kube-prometheus-stack-kube-proxy","release":"kube-prometheus-stack"}}}}
+    creationTimestamp: "2025-10-28T12:12:13Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-kube-proxy
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 79.0.0
+      chart: kube-prometheus-stack-79.0.0
+      heritage: Helm
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-kube-proxy
+    namespace: monitoring
+    resourceVersion: "43782664"
+    uid: 00f1fa31-e608-4d4e-8227-441e87f124b7
+  spec:
+    endpoints:
+    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      port: http-metrics
+    jobLabel: jobLabel
+    namespaceSelector:
+      matchNames:
+      - kube-system
+    selector:
+      matchLabels:
+        app: kube-prometheus-stack-kube-proxy
+        release: kube-prometheus-stack
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kube-scheduler
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kube-scheduler"},"labels":{"app":"kube-prometheus-stack-kube-scheduler","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/part-of":"kube-prometheus-stack","app.kubernetes.io/version":"79.0.0","chart":"kube-prometheus-stack-79.0.0","heritage":"Helm","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-kube-scheduler","namespace":"monitoring"},"spec":{"endpoints":[{"bearerTokenFile":"/var/run/secrets/kubernetes.io/serviceaccount/token","port":"http-metrics","scheme":"https","tlsConfig":{"caFile":"/var/run/secrets/kubernetes.io/serviceaccount/ca.crt","insecureSkipVerify":true}}],"jobLabel":"jobLabel","namespaceSelector":{"matchNames":["kube-system"]},"selector":{"matchLabels":{"app":"kube-prometheus-stack-kube-scheduler","release":"kube-prometheus-stack"}}}}
+    creationTimestamp: "2025-10-28T12:12:13Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-kube-scheduler
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 79.0.0
+      chart: kube-prometheus-stack-79.0.0
+      heritage: Helm
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-kube-scheduler
+    namespace: monitoring
+    resourceVersion: "43782663"
+    uid: 34ff745a-700d-415e-b880-dd8c0dddc0da
+  spec:
+    endpoints:
+    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      port: http-metrics
+      scheme: https
+      tlsConfig:
+        caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        insecureSkipVerify: true
+    jobLabel: jobLabel
+    namespaceSelector:
+      matchNames:
+      - kube-system
+    selector:
+      matchLabels:
+        app: kube-prometheus-stack-kube-scheduler
+        release: kube-prometheus-stack
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kube-state-metrics
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kube-state-metrics"},"labels":{"app.kubernetes.io/component":"metrics","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"kube-state-metrics","app.kubernetes.io/part-of":"kube-state-metrics","app.kubernetes.io/version":"2.17.0","helm.sh/chart":"kube-state-metrics-6.3.0","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-kube-state-metrics","namespace":"monitoring"},"spec":{"endpoints":[{"honorLabels":true,"port":"http"}],"jobLabel":"app.kubernetes.io/name","selector":{"matchLabels":{"app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/name":"kube-state-metrics"}}}}
+    creationTimestamp: "2025-10-28T12:12:14Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/component: metrics
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: kube-state-metrics
+      app.kubernetes.io/part-of: kube-state-metrics
+      app.kubernetes.io/version: 2.17.0
+      helm.sh/chart: kube-state-metrics-6.3.0
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-kube-state-metrics
+    namespace: monitoring
+    resourceVersion: "43782673"
+    uid: 228f5e46-adfa-427c-9f78-b9e5ec16e32e
+  spec:
+    endpoints:
+    - honorLabels: true
+      port: http
+    jobLabel: app.kubernetes.io/name
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: kube-prometheus-stack
+        app.kubernetes.io/name: kube-state-metrics
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kubelet
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-kubelet"},"labels":{"app":"kube-prometheus-stack-kubelet","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/part-of":"kube-prometheus-stack","app.kubernetes.io/version":"79.0.0","chart":"kube-prometheus-stack-79.0.0","heritage":"Helm","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-kubelet","namespace":"monitoring"},"spec":{"attachMetadata":{"node":false},"endpoints":[{"bearerTokenFile":"/var/run/secrets/kubernetes.io/serviceaccount/token","honorLabels":true,"honorTimestamps":true,"metricRelabelings":[{"action":"drop","regex":"(csi_operations|storage_operation_duration)_seconds_bucket;(0.25|2.5|15|25|120|600)(\\.0)?","sourceLabels":["__name__","le"]}],"port":"https-metrics","relabelings":[{"action":"replace","sourceLabels":["__metrics_path__"],"targetLabel":"metrics_path"}],"scheme":"https","tlsConfig":{"caFile":"/var/run/secrets/kubernetes.io/serviceaccount/ca.crt","insecureSkipVerify":true}},{"bearerTokenFile":"/var/run/secrets/kubernetes.io/serviceaccount/token","honorLabels":true,"honorTimestamps":true,"interval":"10s","metricRelabelings":[{"action":"drop","regex":"container_cpu_(cfs_throttled_seconds_total|load_average_10s|system_seconds_total|user_seconds_total)","sourceLabels":["__name__"]},{"action":"drop","regex":"container_fs_(io_current|io_time_seconds_total|io_time_weighted_seconds_total|reads_merged_total|sector_reads_total|sector_writes_total|writes_merged_total)","sourceLabels":["__name__"]},{"action":"drop","regex":"container_memory_(mapped_file|swap)","sourceLabels":["__name__"]},{"action":"drop","regex":"container_(file_descriptors|tasks_state|threads_max)","sourceLabels":["__name__"]},{"action":"drop","regex":"container_memory_failures_total;hierarchy","sourceLabels":["__name__","scope"]},{"action":"drop","regex":"container_network_.*;(cali|cilium|cni|lxc|nodelocaldns|tunl).*","sourceLabels":["__name__","interface"]},{"action":"drop","regex":"container_spec.*","sourceLabels":["__name__"]},{"action":"drop","regex":".+;","sourceLabels":["id","pod"]}],"path":"/metrics/cadvisor","port":"https-metrics","relabelings":[{"action":"replace","sourceLabels":["__metrics_path__"],"targetLabel":"metrics_path"}],"scheme":"https","tlsConfig":{"caFile":"/var/run/secrets/kubernetes.io/serviceaccount/ca.crt","insecureSkipVerify":true},"trackTimestampsStaleness":true},{"bearerTokenFile":"/var/run/secrets/kubernetes.io/serviceaccount/token","honorLabels":true,"honorTimestamps":true,"path":"/metrics/probes","port":"https-metrics","relabelings":[{"action":"replace","sourceLabels":["__metrics_path__"],"targetLabel":"metrics_path"}],"scheme":"https","tlsConfig":{"caFile":"/var/run/secrets/kubernetes.io/serviceaccount/ca.crt","insecureSkipVerify":true}}],"jobLabel":"k8s-app","namespaceSelector":{"matchNames":["kube-system"]},"selector":{"matchLabels":{"app.kubernetes.io/name":"kubelet","k8s-app":"kubelet"}}}}
+    creationTimestamp: "2025-10-28T12:12:14Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-kubelet
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 79.0.0
+      chart: kube-prometheus-stack-79.0.0
+      heritage: Helm
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-kubelet
+    namespace: monitoring
+    resourceVersion: "43782675"
+    uid: e1f3de77-ba6b-4f3e-a4d5-ff64aa170140
+  spec:
+    attachMetadata:
+      node: false
+    endpoints:
+    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      honorLabels: true
+      honorTimestamps: true
+      metricRelabelings:
+      - action: drop
+        regex: (csi_operations|storage_operation_duration)_seconds_bucket;(0.25|2.5|15|25|120|600)(\.0)?
+        sourceLabels:
+        - __name__
+        - le
+      port: https-metrics
+      relabelings:
+      - action: replace
+        sourceLabels:
+        - __metrics_path__
+        targetLabel: metrics_path
+      scheme: https
+      tlsConfig:
+        caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        insecureSkipVerify: true
+    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      honorLabels: true
+      honorTimestamps: true
+      interval: 10s
+      metricRelabelings:
+      - action: drop
+        regex: container_cpu_(cfs_throttled_seconds_total|load_average_10s|system_seconds_total|user_seconds_total)
+        sourceLabels:
+        - __name__
+      - action: drop
+        regex: container_fs_(io_current|io_time_seconds_total|io_time_weighted_seconds_total|reads_merged_total|sector_reads_total|sector_writes_total|writes_merged_total)
+        sourceLabels:
+        - __name__
+      - action: drop
+        regex: container_memory_(mapped_file|swap)
+        sourceLabels:
+        - __name__
+      - action: drop
+        regex: container_(file_descriptors|tasks_state|threads_max)
+        sourceLabels:
+        - __name__
+      - action: drop
+        regex: container_memory_failures_total;hierarchy
+        sourceLabels:
+        - __name__
+        - scope
+      - action: drop
+        regex: container_network_.*;(cali|cilium|cni|lxc|nodelocaldns|tunl).*
+        sourceLabels:
+        - __name__
+        - interface
+      - action: drop
+        regex: container_spec.*
+        sourceLabels:
+        - __name__
+      - action: drop
+        regex: .+;
+        sourceLabels:
+        - id
+        - pod
+      path: /metrics/cadvisor
+      port: https-metrics
+      relabelings:
+      - action: replace
+        sourceLabels:
+        - __metrics_path__
+        targetLabel: metrics_path
+      scheme: https
+      tlsConfig:
+        caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        insecureSkipVerify: true
+      trackTimestampsStaleness: true
+    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      honorLabels: true
+      honorTimestamps: true
+      path: /metrics/probes
+      port: https-metrics
+      relabelings:
+      - action: replace
+        sourceLabels:
+        - __metrics_path__
+        targetLabel: metrics_path
+      scheme: https
+      tlsConfig:
+        caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        insecureSkipVerify: true
+    jobLabel: k8s-app
+    namespaceSelector:
+      matchNames:
+      - kube-system
+    selector:
+      matchLabels:
+        app.kubernetes.io/name: kubelet
+        k8s-app: kubelet
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-operator
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-operator"},"labels":{"app":"kube-prometheus-stack-operator","app.kubernetes.io/component":"prometheus-operator","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"kube-prometheus-stack-prometheus-operator","app.kubernetes.io/part-of":"kube-prometheus-stack","app.kubernetes.io/version":"79.0.0","chart":"kube-prometheus-stack-79.0.0","heritage":"Helm","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-operator","namespace":"monitoring"},"spec":{"endpoints":[{"honorLabels":true,"port":"https","scheme":"https","tlsConfig":{"ca":{"secret":{"key":"ca","name":"kube-prometheus-stack-admission","optional":false}},"serverName":"kube-prometheus-stack-operator"}}],"namespaceSelector":{"matchNames":["monitoring"]},"selector":{"matchLabels":{"app":"kube-prometheus-stack-operator","release":"kube-prometheus-stack"}}}}
+    creationTimestamp: "2025-10-28T12:12:15Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-operator
+      app.kubernetes.io/component: prometheus-operator
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: kube-prometheus-stack-prometheus-operator
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 79.0.0
+      chart: kube-prometheus-stack-79.0.0
+      heritage: Helm
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-operator
+    namespace: monitoring
+    resourceVersion: "43782701"
+    uid: 5b83ea52-8620-44c7-910c-04a73e50a359
+  spec:
+    endpoints:
+    - honorLabels: true
+      port: https
+      scheme: https
+      tlsConfig:
+        ca:
+          secret:
+            key: ca
+            name: kube-prometheus-stack-admission
+            optional: false
+        serverName: kube-prometheus-stack-operator
+    namespaceSelector:
+      matchNames:
+      - monitoring
+    selector:
+      matchLabels:
+        app: kube-prometheus-stack-operator
+        release: kube-prometheus-stack
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-prometheus
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-prometheus"},"labels":{"app":"kube-prometheus-stack-prometheus","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/part-of":"kube-prometheus-stack","app.kubernetes.io/version":"79.0.0","chart":"kube-prometheus-stack-79.0.0","heritage":"Helm","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-prometheus","namespace":"monitoring"},"spec":{"endpoints":[{"path":"/metrics","port":"http-web"},{"path":"/metrics","port":"reloader-web"}],"namespaceSelector":{"matchNames":["monitoring"]},"selector":{"matchLabels":{"app":"kube-prometheus-stack-prometheus","release":"kube-prometheus-stack","self-monitor":"true"}}}}
+    creationTimestamp: "2025-10-28T12:12:16Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-prometheus
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 79.0.0
+      chart: kube-prometheus-stack-79.0.0
+      heritage: Helm
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-prometheus
+    namespace: monitoring
+    resourceVersion: "43782711"
+    uid: 574e17c5-e27f-4213-b0e3-e1a109993253
+  spec:
+    endpoints:
+    - path: /metrics
+      port: http-web
+    - path: /metrics
+      port: reloader-web
+    namespaceSelector:
+      matchNames:
+      - monitoring
+    selector:
+      matchLabels:
+        app: kube-prometheus-stack-prometheus
+        release: kube-prometheus-stack
+        self-monitor: "true"
+- apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    annotations:
+      argocd.argoproj.io/tracking-id: kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-prometheus-node-exporter
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"monitoring.coreos.com/v1","kind":"ServiceMonitor","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"kube-prometheus-stack:monitoring.coreos.com/ServiceMonitor:monitoring/kube-prometheus-stack-prometheus-node-exporter"},"labels":{"app.kubernetes.io/component":"metrics","app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"prometheus-node-exporter","app.kubernetes.io/part-of":"prometheus-node-exporter","app.kubernetes.io/version":"1.9.1","helm.sh/chart":"prometheus-node-exporter-4.48.0","release":"kube-prometheus-stack"},"name":"kube-prometheus-stack-prometheus-node-exporter","namespace":"monitoring"},"spec":{"attachMetadata":{"node":false},"endpoints":[{"port":"http-metrics","scheme":"http"}],"jobLabel":"jobLabel","selector":{"matchLabels":{"app.kubernetes.io/instance":"kube-prometheus-stack","app.kubernetes.io/name":"prometheus-node-exporter"}}}}
+    creationTimestamp: "2025-10-28T12:12:16Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/component: metrics
+      app.kubernetes.io/instance: kube-prometheus-stack
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: prometheus-node-exporter
+      app.kubernetes.io/part-of: prometheus-node-exporter
+      app.kubernetes.io/version: 1.9.1
+      helm.sh/chart: prometheus-node-exporter-4.48.0
+      release: kube-prometheus-stack
+    name: kube-prometheus-stack-prometheus-node-exporter
+    namespace: monitoring
+    resourceVersion: "43782713"
+    uid: b0bdfb0d-d209-4f8f-8b37-c022f88f63f3
+  spec:
+    attachMetadata:
+      node: false
+    endpoints:
+    - port: http-metrics
+      scheme: http
+    jobLabel: jobLabel
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: kube-prometheus-stack
+        app.kubernetes.io/name: prometheus-node-exporter
+kind: List
+metadata:
+  resourceVersion: ""
