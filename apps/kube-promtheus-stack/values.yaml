@@ -1,0 +1,8 @@
+grafana:
+  admin:
+    existingSecret: grafana-admin
+    passwordKey: admin-password
+    
+prometheus:
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
